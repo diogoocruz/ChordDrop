@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texto</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      margin: 0;
+      padding: 10px;
+    }
+
+    #inputContainer, #outputContainer {
+      flex: 1;
+      display: inline;
+      overflow: hidden;
+      box-sizing: border-box;
+ 
+      position: relative;
+
+    }
+
+    #inputText {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #outputImage {
+      position: relative;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    .draggable {
+
+      background-color: #4CAF50;
+      cursor: grab;
+      position: absolute;
+      margin-top: 0;
+      margin-bottom: 0;
+      z-index: 1; 
+    }
+
+    .draggable:hover {
+      background-color: #45a049;
+    }
+
+    .droppable {
+      height: 20px;
+      border-bottom: 2px dashed #000;
+      position: relative;
+      z-index: 0; 
+    }
+
+    .draggableClone {
+      position: absolute;
+    }
+
+    #armazemdeacordes{
+      display: flex;
+      flex-direction: row;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="inputContainer">
+    <textarea id="inputText" placeholder="Insira seu texto aqui..."></textarea>
+    <button onclick="processarTexto()">Processar</button>
+
+    <textarea id="testetext" placeholder="Insira seu teste"></textarea>
+    <button onclick="adicionar()">Teste2</button>
+    <div id="armazemdeacordes">
+    <div class="draggable" draggable="true" ondragstart="onDragStart(event)" id="t1">aa</div></div>
+  </div>
+    <div id="outputContainer">
+      <div id="outputImage" ></div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
