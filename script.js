@@ -30,10 +30,10 @@ function onDrop(event) {
             draggableElement.id = "t2"+Math.random();
  
             dropzone.appendChild(draggableElement);
-            draggableElement.style.position="fixed";
+            draggableElement.style.position="absolute";
 
             draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 + 'px';
-            draggableElement.style.top = event.pageY - draggableElement.offsetHeight / 2 + 'px';
+            draggableElement.style.top = dropzone.offsetTop + 'px';
             console.log('Drop zone ID:', dropzone.id);
             event.dataTransfer.clearData();
         } catch (error) {
@@ -42,10 +42,10 @@ function onDrop(event) {
     } else {
         const dropzone = event.target;
         dropzone.appendChild(draggableElement); 
-        draggableElement.style.position="fixed";
+        draggableElement.style.position="absolute";
 
         draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 + 'px';
-        draggableElement.style.top = event.pageY - draggableElement.offsetHeight / 2 + 'px';  
+        draggableElement.style.top = dropzone.offsetTop + 'px';
         console.log('Drop zone ID:', dropzone.id);
         event.dataTransfer.clearData();
 
@@ -61,7 +61,7 @@ function processarTexto() {
     var inputText = document.getElementById('inputText').value;
 
     // Adicionar uma <div> antes de cada linha
-    var novoTexto = '<div style="height: 1.5em; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
+    var novoTexto = '<div style="height: 1.5em; align-items:center; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; align-items:center; height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
 
     // Exibir o texto formatado
     document.getElementById('outputImage').innerHTML = '<div style="height: 1em;"></div>' + novoTexto;
@@ -74,6 +74,7 @@ function adicionar(){
     el.setAttribute('ondragstart', 'onDragStart(event)');
     el.setAttribute('id', 't1'+Math.random());
     el.classList.add('draggable');
+    el.style.height = "1.5em";
     el.textContent=inputText;
     el.style.backgroundColor = "red";
     document.getElementById("armazemdeacordes").appendChild(el);
