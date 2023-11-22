@@ -13,6 +13,30 @@
 
     <textarea id="testetext" placeholder="Inserir acorde"></textarea>
     <button onclick="adicionar()">Adicionar</button>
+    <select id="notes" multiple>
+      <option>A</option>
+      <option>Bb</option>
+      <option>B</option>
+      <option>C</option>
+      <option>C#</option>
+      <option>D</option>
+      <option>Eb</option>
+      <option>E</option>
+      <option>F</option>
+      <option>F#</option>
+      <option>G</option>
+      <option>Ab</option>
+    </select>
+    <select id="chordTypes">
+      <option>m</option>
+      <option>M</option>
+      <option>m7</option>
+      <option>maj7</option>
+      <option>7</option>
+      <option>º</option>
+    </select>
+    <button onclick="addChord()">Add</button>
+    <button onclick="transporCima()">transp</button>
     <div id="armazemdeacordes">
     <div class="draggable" draggable="true" ondragstart="onDragStart(event)" id="t1">aa</div></div>
   </div>

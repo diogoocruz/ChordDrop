@@ -52,8 +52,32 @@ function onDrop(event) {
     }
 }
 
+const noteMap = {
+    'A': 0,
+    'Bb': 1,
+    'B': 2,
+    'C': 3,
+    'C#': 4,
+    'D': 5,
+    'Eb': 6,
+    'E': 7,
+    'F': 8,
+    'F#': 9,
+    'G': 10,
+    'Ab': 11
+  };
 
+  let notasUsadas = []
 
+  function encontrarChavePorValor(valor) {
+    for (const chave in noteMap) {
+      if (noteMap[chave] === valor) {
+        return chave;
+      }
+    }
+    return null; // Valor não encontrado
+  }
+  
 
 function processarTexto() {
     // Obter o texto do textarea
@@ -81,3 +105,44 @@ function adicionar(){
     lista.push(el.id);
     console.log(lista);
 }
+
+function addChord(){
+    var notesSelect = document.getElementById("notes");
+    var chordTypesSelect = document.getElementById("chordTypes");
+    var selectedNotes = Array.from(notesSelect.selectedOptions).map(option => option.value);
+    var selectedChordType = chordTypesSelect.value;
+
+    notasUsadas.push(selectedNotes);
+    var resultChord = selectedNotes.join("") + selectedChordType;
+    const el = document.createElement('div');
+    el.setAttribute('draggable', true);
+    el.setAttribute('ondragstart', 'onDragStart(event)');
+    el.setAttribute('id', 't1'+Math.random());
+    el.classList.add('draggable');
+    el.style.height = "1.5em";
+    el.textContent=resultChord;
+    el.style.backgroundColor = "red";
+    el.setAttribute('nota', noteMap[selectedNotes[0]])
+    el.setAttribute('type', selectedChordType)
+    document.getElementById("armazemdeacordes").appendChild(el);
+    document.getElementById('testetext').value = "";
+    lista.push(el.id);
+    console.log(lista);
+
+}
+
+function transporCima() {
+    const elementosComNota = document.querySelectorAll('[nota]');
+  
+    elementosComNota.forEach(elemento => {
+      let valorNota = parseInt(elemento.getAttribute('nota')) + 1;
+  
+      if (valorNota > 11) {
+        valorNota = valorNota - 12;
+      }
+  
+      elemento.textContent =encontrarChavePorValor(valorNota)+ elemento.getAttribute('type');
+      elemento.setAttribute('nota', valorNota);
+    });
+  }
+  
