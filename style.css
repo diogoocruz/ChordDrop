@@ -62,3 +62,13 @@ body {
     width: 10px;
     flex-direction: row; /* Set the direction to row */
   }
+
+  .newLine{
+    height: 1.5 em;
+    align-items: center; 
+    text-align: center;
+    width: 100%;
+    display: flex;
+    background-color: rgb(224, 224, 224);
+    
+  }

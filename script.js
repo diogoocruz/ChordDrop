@@ -33,7 +33,7 @@ function onDrop(event) {
             draggableElement.style.position="absolute";
 
             draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 + 'px';
-            draggableElement.style.top = dropzone.offsetTop + 'px';
+            draggableElement.style.top =" 0%";
             console.log('Drop zone ID:', dropzone.id);
             event.dataTransfer.clearData();
         } catch (error) {
@@ -45,8 +45,7 @@ function onDrop(event) {
         draggableElement.style.position="absolute";
 
         draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 + 'px';
-        draggableElement.style.top = dropzone.offsetTop + 'px';
-        console.log('Drop zone ID:', dropzone.id);
+        draggableElement.style.top =" 0%";  
         event.dataTransfer.clearData();
 
         console.error('Draggable element not found with ID: ' + id);
@@ -61,7 +60,7 @@ function processarTexto() {
     var inputText = document.getElementById('inputText').value;
 
     // Adicionar uma <div> antes de cada linha
-    var novoTexto = '<div style="height: 1.5em; align-items:center; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; align-items:center; height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
+    var novoTexto = '<div style="height: 1.5em;  align-items:center; position:relative; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; align-items:center; position:relative;height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
 
     // Exibir o texto formatado
     document.getElementById('outputImage').innerHTML = '<div style="height: 1em;"></div>' + novoTexto;
