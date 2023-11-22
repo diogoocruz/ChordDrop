@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Texto</title>
-  <style src="style.css"></style>
+
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
   <div id="inputContainer">
@@ -36,11 +37,18 @@
       <option>º</option>
     </select>
     <button onclick="addChord()">Add</button>
-    <button onclick="transporCima()">transp</button>
+    <button onclick="transporCima()">transp + </button>
+    <button onclick="transporBaixo()">transp - </button>
+    <button onclick="printInfo()">print</button>
+
+    <textarea id="inputTitulo" placeholder="Inserir título"></textarea>
+    <button onclick="processarTitulo()">ok</button>
+
     <div id="armazemdeacordes">
-    <div class="draggable" draggable="true" ondragstart="onDragStart(event)" id="t1">aa</div></div>
+    <div class="draggable" draggable="false" ondragstart="onDragStart(event)" id="t1"></div></div>
   </div>
     <div id="outputContainer">
+      <h2 id="titulo">Título</h2>
       <div id="outputImage" ></div>
     </div>
 

@@ -3,6 +3,8 @@ body {
     height: 100vh;
     margin: 0;
     padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
   }
 
   #inputContainer, #outputContainer {
@@ -23,14 +25,13 @@ body {
   #outputImage {
     position: relative;
     white-space: pre-wrap;
-    font-family: monospace;
-    font-size: 16px;
     user-select: none;
   }
 
   .draggable {
 
     background-color: #4CAF50;
+    display: inline-flex;
     cursor: grab;
     position: absolute;
     margin-top: 0;
@@ -70,5 +71,5 @@ body {
     width: 100%;
     display: flex;
     background-color: rgb(224, 224, 224);
-    
+
   }

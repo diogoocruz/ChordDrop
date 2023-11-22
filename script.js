@@ -145,4 +145,34 @@ function transporCima() {
       elemento.setAttribute('nota', valorNota);
     });
   }
+  function transporBaixo() {
+    const elementosComNota = document.querySelectorAll('[nota]');
   
+    elementosComNota.forEach(elemento => {
+      let valorNota = parseInt(elemento.getAttribute('nota')) - 1;
+  
+      if (valorNota <0) {
+        valorNota = valorNota + 12;
+      }
+  
+      elemento.textContent =encontrarChavePorValor(valorNota)+ elemento.getAttribute('type');
+      elemento.setAttribute('nota', valorNota);
+    });
+  } 
+
+
+
+function printInfo(){
+  const areaID = "outputContainer";
+  var printContent = document.getElementById(areaID).innerHTML;
+  var originalContent = document.body.innerHTML;
+  document.body.innerHTML = printContent;
+  window.print();
+  document.body.innerHTML = originalContent;
+}
+
+function processarTitulo(){
+  var input = document.getElementById('inputTitulo').value;
+  document.getElementById('inputTitulo').value = "";
+  document.getElementById('titulo').innerHTML = input;
+}
