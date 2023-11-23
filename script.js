@@ -1,4 +1,12 @@
+var editando= false;
 
+function trocarEditando(){
+  if(editando=="off"){
+    editando="on";
+  }else{
+    editando="off";
+  }
+}
 function moveAt(ball, pageX, pageY) {
     ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
     ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
@@ -224,15 +232,39 @@ function deleteChord(event) {
 }
 
 document.addEventListener('click', function (event) {
-  // Verifica se o elemento clicado possui o atributo "data-editable" igual a "a"
-  if (event.target && event.target.getAttribute('contenteditable') === 'true') {
-    console.log('Elemento clicado:', event.target);
-      // Pede ao usuário para inserir um novo texto
-      var newText = prompt('Digite o novo texto:');
+  // Verifica se o elemento clicado possui o atributo "contenteditable" igual a "true"
+  var isContentEditable = event.target && event.target.getAttribute('contenteditable') === 'true';
 
-      // Atualiza o conteúdo do elemento se o usuário inseriu algo
-      if (newText !== null) {
-          event.target.textContent = newText;
-      }
+  // Verifica se a variável global "editando" está definida como "true"
+  if (isContentEditable && editando) {
+    // Restante do seu código para tornar o conteúdo do elemento editável
+    event.target.setAttribute('contenteditable', 'true');
+
+    // Adiciona um evento de foco para quando o elemento se tornar editável
+    event.target.addEventListener('focus', function () {
+      // Adiciona um evento de desfoco para quando o elemento perder o foco
+      event.target.addEventListener('blur', function onBlur() {
+        // Atualiza o conteúdo do elemento se o usuário inseriu algo e remove os eventos de foco e desfoco
+        event.target.setAttribute('contenteditable', 'false');
+        event.target.removeEventListener('focus', onFocus);
+        event.target.removeEventListener('blur', onBlur);
+
+        // Se o usuário inseriu algo
+        if (event.target.textContent.trim() !== '') {
+          // Atualiza o conteúdo do elemento
+          event.target.textContent = event.target.textContent.trim();
+        } else {
+          // Se o usuário não inseriu nada, você pode decidir o que fazer aqui, como remover o elemento
+          // Neste exemplo, vamos definir um texto padrão
+          event.target.textContent = 'Novo Texto';
+        }
+      });
+
+      // Remove o evento de foco após ativá-lo
+      event.target.removeEventListener('focus', onFocus);
+    });
+
+    // Coloca o foco no elemento para iniciar a edição
+    event.target.focus();
   }
 });
