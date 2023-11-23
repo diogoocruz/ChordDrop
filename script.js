@@ -8,6 +8,7 @@ function moveAt(ball, pageX, pageY) {
 function onDragStart(event) {
     console.log('Drag start ID:', event.target.id);
     event.dataTransfer.setData('text/plain', event.target.id);
+    console.log(lista);
 
 }
 
@@ -118,15 +119,14 @@ function addChord(){
     el.setAttribute('draggable', true);
     el.setAttribute('ondragstart', 'onDragStart(event)');
     el.setAttribute('id', 't1'+Math.random());
+    lista.push(el.id);
     el.classList.add('draggable');
     el.style.height = "1.5em";
     el.textContent=resultChord;
-    el.style.backgroundColor = "red";
+    el.style.backgroundColor = "#D4FFF2";
     el.setAttribute('nota', noteMap[selectedNotes[0]])
     el.setAttribute('type', selectedChordType)
     document.getElementById("armazemdeacordes").appendChild(el);
-    document.getElementById('testetext').value = "";
-    lista.push(el.id);
     console.log(lista);
 
 }
@@ -175,4 +175,13 @@ function processarTitulo(){
   var input = document.getElementById('inputTitulo').value;
   document.getElementById('inputTitulo').value = "";
   document.getElementById('titulo').innerHTML = input;
+}
+
+function deleteChord(event) {
+  // Check if dataTransfer is available before using it
+  if (event.dataTransfer) {
+      const id = event.dataTransfer.getData('text/plain');
+      let draggableElement = document.getElementById(id);
+      draggableElement.parentNode.removeChild(draggableElement);
+  }
 }
