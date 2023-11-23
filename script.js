@@ -168,7 +168,9 @@ function addChord(){
     el.classList.add('draggable');
     el.style.height = "1.5em";
     el.textContent=resultChord;
-    el.style.backgroundColor = "#D4FFF2";
+    el.style.color= "#7D4F68";
+    el.style.fontWeight= "bold";
+
     el.setAttribute('nota', noteMap[selectedNotes[0]])
     el.setAttribute('type', selectedChordType)
     document.getElementById("armazemdeacordes").appendChild(el);
