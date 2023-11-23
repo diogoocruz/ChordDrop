@@ -83,6 +83,7 @@ const noteMap = {
 function processarTexto() {
     // Obter o texto do textarea
     var inputText = document.getElementById('inputText').value;
+    inputText = inputText + ' contenteditable="true"';
 
     // Adicionar uma <div> antes de cada linha
     var novoTexto = '<div style="height: 1.5em;  align-items:center; position:relative; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; align-items:center; position:relative;height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
@@ -185,3 +186,17 @@ function deleteChord(event) {
       draggableElement.parentNode.removeChild(draggableElement);
   }
 }
+
+document.addEventListener('click', function (event) {
+  // Verifica se o elemento clicado possui o atributo "data-editable" igual a "a"
+  if (event.target && event.target.getAttribute('contenteditable') === 'true') {
+    console.log('Elemento clicado:', event.target);
+      // Pede ao usuário para inserir um novo texto
+      var newText = prompt('Digite o novo texto:');
+
+      // Atualiza o conteúdo do elemento se o usuário inseriu algo
+      if (newText !== null) {
+          event.target.textContent = newText;
+      }
+  }
+});
