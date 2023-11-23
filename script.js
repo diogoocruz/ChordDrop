@@ -83,14 +83,50 @@ const noteMap = {
 function processarTexto() {
     // Obter o texto do textarea
     var inputText = document.getElementById('inputText').value;
-    inputText = inputText + ' contenteditable="true"';
+    inputText = inputText;
 
     // Adicionar uma <div> antes de cada linha
-    var novoTexto = '<div style="height: 1.5em;  align-items:center; position:relative; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; align-items:center; position:relative;height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
-
+    var novoTexto = '<div style="height: 1.5em;  align-items:center; position:relative; text-align:center;width:100%; display:flex;background-color:grey;" id="outputContainer" editable="false" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>' + inputText.replace(/\n/g, '<div style="display:flex; align-items:center; position:relative;height: 1.5em;text-align:center;width:100%;background-color:grey" id="outputContainer" ondrop="onDrop(event)" ondragover="onDragOver(event)"></div>');
     // Exibir o texto formatado
     document.getElementById('outputImage').innerHTML = '<div style="height: 1em;"></div>' + novoTexto;
+
 }
+
+function processarTexto() {
+  // Obter o texto do textarea
+  var inputText = document.getElementById('inputText').value;
+  inputText = inputText.split("\n");
+
+  // Limpar o conteúdo atual do outputImage
+  document.getElementById('outputImage').innerHTML = '';
+
+  // Iterar sobre as linhas do texto e adicionar divs alternadas ao outputImage
+  for (var i = 0; i < inputText.length; i++) {
+    // Adicionar div sem texto
+    var divWithoutText = document.createElement('div');
+    divWithoutText.style.height = '1.5em';
+    divWithoutText.style.alignItems = 'center';
+    divWithoutText.style.position = 'relative';
+    divWithoutText.style.textAlign = 'center';
+    divWithoutText.style.width = '100%';
+    divWithoutText.style.display = 'flex';
+    divWithoutText.style.backgroundColor = 'grey';
+    divWithoutText.id = 'outputContainer' + i; // Adiciona um ID único para cada div
+    divWithoutText.setAttribute('contenteditable', 'false');
+    divWithoutText.setAttribute('ondrop', 'onDrop(event)');
+    divWithoutText.setAttribute('ondragover', 'onDragOver(event)');
+    document.getElementById('outputImage').appendChild(divWithoutText);
+
+    // Adicionar div com texto
+    if( inputText[i]!=""){
+    var divWithText = document.createElement('div');
+    divWithText.textContent = inputText[i];
+    divWithText.setAttribute('contenteditable', 'true');
+    document.getElementById('outputImage').appendChild(divWithText);
+  }}
+}
+
+
 
 function adicionar(){
     var inputText = document.getElementById('testetext').value;
