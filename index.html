@@ -6,8 +6,13 @@
   <title>Cifra</title>
 
   <link rel="stylesheet" href="style3.css">
+  <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+  <link rel="stylesheet" href="ce.css">
+
+
 </head>
 <body>
+  <header><h1>CIFRA</h1></header>
   <div id="inputContainer">
     <div id="nnn" class="parentinput">
       <textarea id="inputText" placeholder="Inserir lyrics" class="g1"></textarea>
@@ -44,6 +49,12 @@
       <button class="g10" onclick="processarTitulo()">ok</button>
       <div class="g11" id="lixo" ondrop="deleteChord(event)" ondragover="onDragOver(event)">LIXO </div>
       <button onclick="trocarEditando()">Editavel</button>
+      <select  onchange="fontSelect()" id="Font-Select">
+        <option value="Default">Default</option>
+          <option value="Arial">Arial</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+      </select>
     </div>
     <div id="armazemdeacordes">
     <div class="draggable" draggable="false" ondragstart="onDragStart(event)" id="t1"></div></div>

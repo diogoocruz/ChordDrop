@@ -3,6 +3,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
     background-color: #DCD6F7;
+    margin: 20px 20px 20px 20px;
 
 }
 
@@ -39,7 +40,7 @@ body{
     }
 
 textarea{
-  background-color: #e9e4ff;
+  background-color: #e7e5f0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -62,6 +63,7 @@ button{
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
 }
+
 
 @media print {
     body {

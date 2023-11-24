@@ -1,5 +1,7 @@
 var editando= false;
 
+
+
 function trocarEditando(){
   if(editando=="off"){
     editando="on";
@@ -41,7 +43,7 @@ function onDrop(event) {
             dropzone.appendChild(draggableElement);
             draggableElement.style.position="absolute";
 
-            draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 + 'px';
+            draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 - 10+ 'px';
             draggableElement.style.top =" 0%";
             console.log('Drop zone ID:', dropzone.id);
             event.dataTransfer.clearData();
@@ -53,7 +55,7 @@ function onDrop(event) {
         dropzone.appendChild(draggableElement); 
         draggableElement.style.position="absolute";
 
-        draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 + 'px';
+        draggableElement.style.left = event.pageX - draggableElement.offsetWidth / 2 - 10+ 'px';
         draggableElement.style.top =" 0%";  
         event.dataTransfer.clearData();
 
@@ -118,7 +120,9 @@ function processarTexto() {
     divWithoutText.style.textAlign = 'center';
     divWithoutText.style.width = '100%';
     divWithoutText.style.display = 'flex';
-    divWithoutText.style.backgroundColor = 'grey';
+    divWithoutText.style.backgroundColor = '#dbdbdb';
+    divWithoutText.style.margin = "0 0 0 0";
+
     divWithoutText.id = 'outputContainer' + i; // Adiciona um ID único para cada div
     divWithoutText.setAttribute('contenteditable', 'false');
     divWithoutText.setAttribute('ondrop', 'onDrop(event)');
@@ -170,6 +174,7 @@ function addChord(){
     el.textContent=resultChord;
     el.style.color= "#7D4F68";
     el.style.fontWeight= "bold";
+    el.style.margin = "0 0 0 0";
 
     el.setAttribute('nota', noteMap[selectedNotes[0]])
     el.setAttribute('type', selectedChordType)
@@ -270,3 +275,19 @@ document.addEventListener('click', function (event) {
     event.target.focus();
   }
 });
+
+function fontSelect(){
+  console.log("fontSelect");
+  var font = document.getElementById("Font-Select");
+  font = font.value;
+  if(font=="Default"){
+    var sampleText = document.getElementById("lixo");
+    var computedStyle = window.getComputedStyle(sampleText);
+    var fontFamily = computedStyle.getPropertyValue('font-family');
+    font = fontFamily;
+  }
+  document.getElementById("outputImage").style.fontFamily = font;
+
+}
+
+
