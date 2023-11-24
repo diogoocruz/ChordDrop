@@ -18,3 +18,6 @@ select{
     padding: 10px 10px 10px 10px;
 }
 
+textarea{
+    background-color: #F5F7F8;
+}

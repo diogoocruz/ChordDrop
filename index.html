@@ -49,7 +49,8 @@
       <button class="g10" onclick="processarTitulo()">ok</button>
       <div class="g11" id="lixo" ondrop="deleteChord(event)" ondragover="onDragOver(event)">LIXO </div>
       <button onclick="trocarEditando()">Editavel</button>
-      <select  onchange="fontSelect()" id="Font-Select">
+      <select placeholder="Font" onchange="fontSelect()" id="Font-Select">
+        <option value="" disabled selected>Text Font</option>
         <option value="Default">Default</option>
           <option value="Arial">Arial</option>
           <option value="Times New Roman">Times New Roman</option>
