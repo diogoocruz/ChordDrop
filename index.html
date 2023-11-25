@@ -16,9 +16,9 @@
   <div id="inputContainer">
     <div id="nnn" class="parentinput">
       <textarea id="inputText" placeholder="Inserir lyrics" class="g1"></textarea>
-      <button onclick="processarTexto()" class="g5">Processar</button>
+      <button onclick="processarTexto()" class="g2">Processar</button>
 
-      <select class="g2"id="notes">
+      <select class="g4"id="notes">
         <option>A</option>
         <option>Bb</option>
         <option>B</option>
@@ -32,7 +32,7 @@
         <option>G</option>
         <option>Ab</option>
       </select>
-      <select class="g3" id="chordTypes">
+      <select class="g5" id="chordTypes">
         <option>m</option>
         <option>M</option>
         <option>m7</option>
@@ -40,26 +40,25 @@
         <option>7</option>
         <option>º</option>
       </select>
-      <button class="g4"onclick="addChord()">Add</button>
-      <button class="g6"onclick="transporCima()">transp + </button>
-      <button class="g7"onclick="transporBaixo()">transp - </button>
-      <button class="g8"onclick="printInfo()">print</button>
+      <button class="g6"onclick="addChord()">Add</button>
+      <button class="g10"onclick="transporCima()">transp + </button>
+      <button class="g11"onclick="transporBaixo()">transp - </button>
+      <button class="g12"onclick="printInfo()">print</button>
 
-      <textarea class="g9"id="inputTitulo" placeholder="Inserir título"></textarea>
-      <button class="g10" onclick="processarTitulo()">ok</button>
-      <div class="g11" id="lixo" ondrop="deleteChord(event)" ondragover="onDragOver(event)">LIXO </div>
-      <button onclick="trocarEditando()">Editavel</button>
-      <select placeholder="Font" onchange="fontSelect()" id="Font-Select">
+      <textarea class="g8"id="inputTitulo" placeholder="Inserir título"></textarea>
+      <button class="g9" onclick="processarTitulo()">ok</button>
+      <div class="g16" id="lixo" ondrop="deleteChord(event)" ondragover="onDragOver(event)">LIXO </div>
+      <button call="g3" onclick="trocarEditando()">Editavel</button>
+      <select placeholder="Font" class="g7" onchange="fontSelect()" id="Font-Select">
         <option value="" disabled selected>Text Font</option>
         <option value="Default">Default</option>
           <option value="Arial">Arial</option>
           <option value="Times New Roman">Times New Roman</option>
           <option value="Courier New">Courier New</option>
       </select>
-      <button onclick="save()">Save</button>
-      <label for="fileInput">Open</label>
-
-      <input type="file" id="fileInput" accept=".html" >
+      <button class="g13" onclick="save()">Save</button>
+      <button class="g14" onclick="activateInput()">Open</button>
+      <input  class="g15" type="file" id="fileInput" accept=".html" >
     </div>
     <div id="armazemdeacordes">
     <div class="draggable" draggable="false" ondragstart="onDragStart(event)" id="t1"></div></div>

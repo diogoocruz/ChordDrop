@@ -363,3 +363,7 @@ fileInput.addEventListener('change', function (event) {
         reader.readAsText(file);
     }
 });
+
+function activateInput() {
+  document.getElementById('fileInput').click();
+}
