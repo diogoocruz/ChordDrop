@@ -291,3 +291,75 @@ function fontSelect(){
 }
 
 
+function save(){
+  // Get the HTML content of the specific div
+  var divContent = document.getElementById('outputContainer').outerHTML;
+
+  // Create a Blob containing the div content
+  var blob = new Blob([divContent], { type: 'text/html' });
+
+  // Create a temporary URL for the Blob
+  var url = URL.createObjectURL(blob);
+
+  // Create a link element
+  var link = document.createElement('a');
+
+  // Set the link's attributes
+  link.href = url;
+  link.download = 'your_file_name.html';
+
+  // Append the link to the document
+  document.body.appendChild(link);
+
+  // Trigger a click event on the link to start the download
+  link.click();
+
+  // Remove the link from the document
+  document.body.removeChild(link);
+
+  // Revoke the Blob URL to free up resources
+  URL.revokeObjectURL(url);
+
+}
+
+// Assume you have an input element of type file in your HTML
+// Assume you have an input element of type file in your HTML
+var fileInput = document.getElementById('fileInput');
+
+// Add an event listener to the input element
+fileInput.addEventListener('change', function (event) {
+    console.log("File selected!"); // Log to check if the event listener is triggered
+
+    // Get the selected file
+    var file = event.target.files[0];
+
+    // Check if a file was selected
+    if (file) {
+        console.log("File:", file); // Log to check if the file object is correct
+
+        // Create a FileReader
+        var reader = new FileReader();
+
+        // Set up the FileReader to handle the file content
+        reader.onload = function (e) {
+            // Get the content of the file
+            var fileContent = e.target.result;
+
+            console.log("File content:", fileContent); // Log the content to check if it's being read correctly
+
+            // Assume you have a div with the id "targetDiv" where you want to replace the content
+            var targetDiv = document.getElementById('outputContainer');
+
+            // Replace the content of the target div with the content from the file
+            targetDiv.innerHTML = fileContent;
+        };
+
+        // Set up another event listener for the FileReader to log any potential errors
+        reader.onerror = function (e) {
+            console.error("Error reading file:", e.target.error);
+        };
+
+        // Read the file as text
+        reader.readAsText(file);
+    }
+});
