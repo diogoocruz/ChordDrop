@@ -1,0 +1,29 @@
+:root{
+    --bg-color: #F3F3F3;
+}
+
+body{
+    margin: 20px 20px 20px 20px;
+    min-height: 97vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cabecalho{
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+footer {
+    margin-top: auto;
+    padding-top: 1em;
+  }
+
+h1{
+    font-size: 50px;
+}
+
+.corpo{
+    line-height: 1.5 em;
+    font-size: 20px;;
+}
