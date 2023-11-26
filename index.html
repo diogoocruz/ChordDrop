@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cifra</title>
+  <title>ChordDrop</title>
 
   <link rel="stylesheet" href="style3.css">
   <link rel="stylesheet" href="https://unpkg.com/chota@latest">
@@ -12,11 +12,13 @@
 
 </head>
 <body>
-  <header><h1>CIFRA</h1></header>
+  <header style="text-align: center;"><h1>ChordDrop</h1>
+  </header>
+
   <div id="inputContainer">
     <div id="nnn" class="parentinput">
-      <textarea id="inputText" placeholder="Inserir lyrics" class="g1"></textarea>
-      <button onclick="processarTexto()" class="g2">Processar</button>
+      <textarea id="inputText" placeholder="Inserir letra para cifrar." class="g1"></textarea>
+      <button onclick="processarTexto()" class="g2">Ok</button>
 
       <select class="g4"id="notes">
         <option>A</option>
@@ -34,30 +36,30 @@
       </select>
       <select class="g5" id="chordTypes">
         <option>m</option>
-        <option>M</option>
+        <option></option>
         <option>m7</option>
         <option>maj7</option>
         <option>7</option>
         <option>º</option>
       </select>
-      <button class="g6"onclick="addChord()">Add</button>
-      <button class="g10"onclick="transporCima()">transp + </button>
-      <button class="g11"onclick="transporBaixo()">transp - </button>
-      <button class="g12"onclick="printInfo()">print</button>
+      <button class="g6"onclick="addChord()">Adicionar</button>
+      <button class="g10"onclick="transporCima()">Subir meio tom </button>
+      <button class="g11"onclick="transporBaixo()">Descer meio tom </button>
+      <button class="g12"onclick="printInfo()">PDF</button>
 
-      <textarea class="g8"id="inputTitulo" placeholder="Inserir título"></textarea>
-      <button class="g9" onclick="processarTitulo()">ok</button>
+      <textarea class="g8"id="inputTitulo" placeholder="Inserir título."></textarea>
+      <button class="g9" onclick="processarTitulo()">Ok</button>
       <div class="g16" id="lixo" ondrop="deleteChord(event)" ondragover="onDragOver(event)">LIXO </div>
       <button call="g3" onclick="trocarEditando()">Editavel</button>
       <select placeholder="Font" class="g7" onchange="fontSelect()" id="Font-Select">
-        <option value="" disabled selected>Text Font</option>
-        <option value="Default">Default</option>
-          <option value="Arial">Arial</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Courier New">Courier New</option>
+        <option value="" disabled selected>Tipo de Texto</option>
+        <option value="Default">Padrão</option>
+          <option value="Arial" style="font-family: Arial;">Arial</option>
+          <option value="Times New Roman" style="font-family: Times New Roman;">Times New Roman</option>
+          <option value="Courier New" style="font-family: Courier Bew">Courier New</option>
       </select>
-      <button class="g13" onclick="save()">Save</button>
-      <button class="g14" onclick="activateInput()">Open</button>
+      <button class="g13" onclick="save()">Salvar</button>
+      <button class="g14" onclick="activateInput()">Abrir</button>
       <input  class="g15" type="file" id="fileInput" accept=".html" >
     </div>
     <div id="armazemdeacordes">
@@ -67,6 +69,7 @@
       <h2 id="titulo"></h2>
       <div id="outputImage" ></div>
     </div>
+  <footer>by diogoocruz</footer>
 
   <script src="script.js"></script>
 </body>

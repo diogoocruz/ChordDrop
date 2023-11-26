@@ -4,6 +4,9 @@ body{
     line-height: 1.5;
     background-color: #DCD6F7;
     margin: 20px 20px 20px 20px;
+    min-height: 97vh;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -42,6 +45,8 @@ body{
       align-items: center;
       padding: 10px 10px 10px 10px;
       margin-left: 10px ;
+      justify-content: center;
+      display: flex;
   }
 
 textarea{
@@ -68,7 +73,10 @@ button{
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
 }
-
+footer {
+  margin-top: auto;
+  padding-top: 1em;
+}
 
 @media print {
     body {
